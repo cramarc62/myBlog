@@ -1,7 +1,7 @@
 import React, {useState,useContext,useEffect}from 'react'
 import {GlobalContext} from '../context/GlobalState'
 import {Form} from 'react-bootstrap'
-import {nanoid} from 'nanoid'
+// import {nanoid} from 'nanoid'
 import { Redirect,useHistory } from 'react-router-dom'
 //import { getPosts } from '../../../controller/posts_controller'
 export const Create = () => {
