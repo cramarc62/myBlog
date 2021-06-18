@@ -1,7 +1,7 @@
 import React ,{useState,useEffect,createContext, useReducer } from 'react'
 import AppReducer from './AppReducer'
 import AuthReducer from './AuthReducer'
-import {nanoid} from 'nanoid'
+// import {nanoid} from 'nanoid'
 import axios from 'axios'
 import {useHistory } from 'react-router-dom'
 const ObjectID = require('mongodb').ObjectID
