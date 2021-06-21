@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 export const Pagination = (props) => {
-    if(props.category === undefined){
+    if(props.category === undefined && props.userid===undefined){
         return (
             
             <nav className="text-center col-md-6">
@@ -12,6 +12,22 @@ export const Pagination = (props) => {
                     {props.pageNumbers.map( number=>(
                     <li key={ number } className = 'page-item'>
                         <Link to={`/posts/${number}`}onClick={ ()=>props.paginate(number) }  className='page-link' >{number}</Link>
+                    </li>   
+                    ))}
+
+                </ul>
+            
+            </nav>
+    )
+    }
+    else if(props.userid !== undefined){
+        return (
+            
+            <nav className="text-center col-md-6">
+                <ul className='pagination'>
+                    {props.pageNumbers.map( number=>(
+                    <li key={ number } className = 'page-item'>
+                        <Link to={`/posts/user/${props.userid}/${number}`}onClick={ ()=>props.paginate(number) }  className='page-link' >{number}</Link>
                     </li>   
                     ))}
 

@@ -36,7 +36,7 @@ export  const Post = (props) => {
                         
                     </div>
                     {/* <div className="card-footer" style={{textAlign:"center"}}>Footer</div> */}
-                    <div style={{margin:"auto"}}>posted by <Link to={`/posts/post/${props.post._id}`} ><i>{username(props.post.creator_id)}</i></Link> in <Link to={`/posts/category/${props.post.category}/1`}>{props.post.category}</Link> category 
+                    <div style={{margin:"auto"}}>posted by <Link to={`/posts/user/${props.post.creator_id}/1`} ><i>{username(props.post.creator_id)}</i></Link> in <Link to={`/posts/category/${props.post.category}/1`}>{props.post.category}</Link> category 
             </div></div>
             </div> 
         </div>

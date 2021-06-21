@@ -3,14 +3,15 @@ import {GlobalContext} from '../context/GlobalState'
 import {Post} from './Post'
 import {Pagination} from './Pagination'
 
-export const ShowPostsOfCategory = (props) => {
-    const{getPostsOfCategory,posts}=useContext(GlobalContext);
+export const ShowPostsOfUser = (props) => {
+    const{getPostsOfUser,posts,getPosts}=useContext(GlobalContext);
     const [isLoading, setLoading] = useState(true);
     //console.log(props.match.params.id);
     console.log(props);
     useEffect(()=>{
+        //getPosts()
         
-        getPostsOfCategory(props.match.params.category);
+        getPostsOfUser(props.match.params.userid);
         setLoading(false);
     },[])
     
@@ -55,7 +56,7 @@ export const ShowPostsOfCategory = (props) => {
            
         </div>
         <div style={{margin:"auto" , width: "10%"}}>
-            <Pagination pageNumbers={pageNumbers} paginate={paginate} category={props.match.params.category}/>
+            <Pagination pageNumbers={pageNumbers} paginate={paginate} category={props.match.params.userid}/>
         </div>
         </>
 

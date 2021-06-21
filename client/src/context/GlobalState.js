@@ -8,6 +8,7 @@ const ObjectID = require('mongodb').ObjectID
 
 const initialState={
     posts:[],
+    allPosts:[],
     comments:[],
     //commentcount:[],
     user:[],
@@ -389,14 +390,29 @@ export const GlobalProvider =({children})=>{
         })
     }
 
-    function getPostsOfCategory(category){
+    async function getPostsOfCategory(category){
         //const allPostsOfCategory= await get(`/posts/${category}`);
         console.log("it is called");
         console.log(category);
+        //const verybad= await axios.get("/posts");
         dispatch({
             type:"GET_POSTS_OF_A_CATEGORY",
             //payload:allPostsOfCategory.data.data
-            payload:category
+            payload:category,
+            //payload2:verybad.data.data
+        })
+        //console.log(allPostsOfCategory.data.data);
+
+    }
+    function getPostsOfUser(id){
+        //const allPostsOfCategory= await get(`/posts/${category}`);
+        console.log("it is username");
+        console.log(id);
+        ///getPosts()
+        dispatch({
+            type:"GET_POSTS_OF_A_USER",
+            //payload:allPostsOfCategory.data.data
+            payload:id
         })
         //console.log(allPostsOfCategory.data.data);
 
@@ -407,7 +423,7 @@ export const GlobalProvider =({children})=>{
         <GlobalContext.Provider
          value={{msg:state.msg,users:state.users,token:state.token, posts:state.posts,
                 comments:state.comments,user:state.user,searchOn:state.searchOn,
-                updateUser,getsetmessage,getUsers,logout,loadUser,checkUserexists, addUser,getPostsOfCategory,
+                updateUser,getsetmessage,getUsers,logout,loadUser,checkUserexists, addUser,getPostsOfCategory,getPostsOfUser,
                 getSinglePost,getSearchedPosts,getPosts,addPost,deletePost,updatePost,addComment,getComments}}>
             {children}
         </GlobalContext.Provider>

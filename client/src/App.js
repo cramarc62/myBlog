@@ -26,6 +26,7 @@ import {Container}  from 'react-bootstrap'
 
 
 import './App.css';
+import { ShowPostsOfUser } from './components/ShowPostsOfUser';
 
 function App() {
     
@@ -42,6 +43,7 @@ function App() {
           <Route exact path="/posts/searchedPosts" component={SearchedPosts }/>
           <Route exact path="/posts/create" component={Create}/>
           <Route exact path="/posts/category/:category/:id" component={ShowPostsOfCategory}/>
+          <Route exact path="/posts/user/:userid/:id" component={ShowPostsOfUser}/>
           <Route exact path="/posts/edit/:id" component={Edit}/>
           <Route exact path="/posts/post/:id" component={ViewPost}/>
           <Route exact path="/posts/:id" component={Posts}/>

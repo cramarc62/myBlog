@@ -3,7 +3,8 @@ export default(state,action)=> {
         case "GET_POSTS":
             return{
                 ...state,
-                posts: action.payload
+                posts: action.payload,
+                allPosts:action.payload
             }
         case "GET_SEARCHED_POSTS":
             return{
@@ -12,10 +13,17 @@ export default(state,action)=> {
                 posts:state.posts.filter(post=>post.post_body.includes(action.payload))
             }
         case "GET_POSTS_OF_A_CATEGORY":
+            //console.log(action.payload2)
             return{
                 ...state,
-                posts:state.posts.filter(post=>post.category===action.payload)
+                posts:state.allPosts.filter(post=>post.category===action.payload)
             }
+        case "GET_POSTS_OF_A_USER":
+            return{
+                ...state,
+                posts:state.allPosts.filter(post=>post.creator_id===action.payload)
+            }
+            
         case "SINGLE_POST":
             //console.log( typeof(ObjectID(action.payload1)));
            /* const post=state.posts.map(post=>{

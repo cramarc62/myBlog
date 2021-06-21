@@ -78,9 +78,10 @@ export const Navigation = () => {
             <Navbar bg="dark" variant="dark" className="mb-4" expand="lg">
             <Navbar.Brand >
                 {console.log(users)}
-                 <img src={`/uploads/${user[0].image_url}`} 
+                {users.length === 0? console.log('list empty'):console.log('list not empty')}
+                 {/* <img src={`/uploads/${user[0].image_url}`} 
                 style={{width:"100%",height:"100%",objectFit:"cover",overflow:"hidden",maxHeight:"40px",maxWidth:"40px",borderRadius:"50%"}}
-                /> 
+                />  */}
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">

@@ -19,8 +19,8 @@ const upload = multer({ storage })*/
 
 
 
-//const connectDB= require('./db');
-//connectDB();
+// const connectDB= require('./db');
+// connectDB();
 const DB=require('./config/keys').mongoURI;
 mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(()=>console.log('mongoDB connected...'))
