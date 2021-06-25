@@ -4,7 +4,7 @@ const Comment=require('../models/Comments_model');
 const { db } = require('../models/Comments_model');
 const ObjectID = require('mongodb').ObjectID
 //const upload= require('../server')
-const fileUpload= require('G:\\reactjs\\myBlog\\server.js')
+//const fileUpload= require('G:\\reactjs\\myBlog\\server.js')
 
 
 //const Users=require('../models/User_model');

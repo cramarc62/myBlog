@@ -227,13 +227,34 @@ app.post('/posts',auth,async (req,res)=>{
         image_url:`${sampleFile.name}`
       })
       await post.save();
-      await Category.findOneAndUpdate({category_name:req.body.category} ,
-        {
-        $inc:{
-            posts_no:1
-        }
-        
+      const findCategory = await Category.findOne({category_name:req.body.category});
+      if (findCategory){
+        await Category.findOneAndUpdate({category_name:req.body.category} ,
+          {
+          $inc:{
+              posts_no:1
+          }
+          
+          }
+        )
+
+      }
+      else {
+        let newCategory=new Category({
+          category_name:req.body.category,
+          posts_no:1
         })
+        await Category.create(newCategory);
+
+      }
+      // await Category.findOneAndUpdate({category_name:req.body.category} ,
+      //   {
+      //   $inc:{
+      //       posts_no:1
+      //   }
+        
+      //   }
+       // )
 
       res.send({
               data:post
